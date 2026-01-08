@@ -13,6 +13,10 @@ public class LibraryManager {
         return Collections.unmodifiableList(books);
     }
 
+    public int getTotalBooks() {
+        return books.size();
+    }
+
     public static void main(String[] args) {
         LibraryManager manager = new LibraryManager();
         manager.addBook(new Book("B001", "Clean Code", "Robert C. Martin"));
@@ -21,5 +25,7 @@ public class LibraryManager {
         for (Book book : manager.getBooks()) {
             System.out.println(book);
         }
+
+        System.out.println("Total: " + manager.getTotalBooks());
     }
 }
