@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/head :: head('My Loans')"></head>
+<body>
+<div th:replace="fragments/nav :: nav"></div>
+<div class="container">
+    <h3>My Loans</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Loan Date</th>
+                <th>Due Date</th>
+                <th>Status</th>
+                <th>Items</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="l : ${loans}">
+                <td th:text="${l.loanDate}"></td>
+                <td th:text="${l.dueDate}"></td>
+                <td th:text="${l.status}"></td>
+                <td>
+                    <span th:each="i : ${l.items}" class="badge text-bg-secondary me-1" th:text="${i.bookCopy.barcode}"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/head :: head('Dashboard')"></head>
+<body>
+<div th:replace="fragments/nav :: nav"></div>
+<div class="container">
+    <h3 class="mb-4">Dashboard</h3>
+    <div class="row g-3">
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="text-muted">Total Books</div>
+                    <div class="fs-4" th:text="${totalBooks}">0</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="text-muted">Total Copies</div>
+                    <div class="fs-4" th:text="${totalCopies}">0</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="text-muted">Borrowed</div>
+                    <div class="fs-4" th:text="${borrowed}">0</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="text-muted">Overdue</div>
+                    <div class="fs-4" th:text="${overdue}">0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row g-3 mt-1">
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="text-muted">Members</div>
+                    <div class="fs-4" th:text="${members}">0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

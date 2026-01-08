@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/head :: head('Catalog')"></head>
+<body>
+<div th:replace="fragments/nav :: nav"></div>
+<div class="container">
+    <h3>Book Catalog</h3>
+    <form class="mb-3" method="get" action="/member/books">
+        <div class="input-group">
+            <input class="form-control" type="text" name="q" placeholder="Search title/author/ISBN" th:value="${query}" />
+            <button class="btn btn-outline-secondary" type="submit">Search</button>
+        </div>
+    </form>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="b : ${books}">
+                <td th:text="${b.title}"></td>
+                <td th:text="${b.author}"></td>
+                <td th:text="${b.isbn}"></td>
+                <td th:text="${b.category != null ? b.category.name : ''}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
